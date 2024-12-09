@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toque Azul</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .custom-navbar {
+            background-color: #6ea1ff;
+            color: white;
+        }
+
+        .nav-link {
+            color: white;
+        }
+
+        .about-box {
+            background-color: #d3e1ff;
+            border-left: 5px solid #e6e8eb;
+            color: #004d80;
+        }
+
+        .about-box h2 {
+            font-size: 2rem;
+            color: #6ea1ff;
+            font-weight: bold;
+        }
+
+        .about-box .highlight {
+            color: #3c9aff;
+        }
+
+        .about-box p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .about-box a {
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 25px;
+        }
+
+
+        /* Hero Section */
+        .hero {
+            background: url('/img/271726142_897247340974972_230190252136882831_n.jpg') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 700px;
+        }
+
+        .hero-logo {
+            max-width: 200px;
+        }
+
+        /* Tarjetas de eventos */
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        #about-us {
+            background-color: #f8f9fa;
+        }
+
+        #about-us h3 {
+            color: #6ea1ff;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        #about-us ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        #about-us ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        #about-us ul li::before {
+            content: "✔️";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #007bff;
+            font-size: 1.2rem;
+        }
+
+        .testimonial {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .testimonial-img {
+            width: 100px;
+            /* Tamaño de la imagen */
+            height: 100px;
+            /* Tamaño de la imagen */
+            border-radius: 50%;
+            /* Hace que la imagen sea circular */
+            object-fit: cover;
+            /* Ajusta la imagen para que se vea correctamente */
+            margin-bottom: 15px;
+            /* Espacio entre la imagen y el texto */
+            border: 2px solid #007bff;
+            /* Borde decorativo */
+        }
+
+        .btn-primary {
+            background-color: #6ea1ff;
+            /* Color corporativo */
+            border: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            /* Color más oscuro al pasar el mouse */
+            transform: scale(1.05);
+            /* Efecto de agrandamiento */
+        }
+
+        .carousel-slide-bg {
+            position: relative;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 80%;
+            text-align: center;
+        }
+
+        .event-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .event-description {
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+
+        footer a:hover {
+            color: #84adf8;
+            /* Color de enlace al pasar el mouse */
+        }
+
+        footer i {
+            transition: transform 0.3s ease;
+            /* Animación al pasar sobre los íconos */
+        }
+
+        footer i:hover {
+            transform: scale(1.2);
+            /* Aumenta el tamaño del ícono al pasar el mouse */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+            <span class="navbar-brand" style="font-weight: bold; font-size: 24px; color: white;">
+                TOQUE AZUL
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index.html"><b>Inicio</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/nosotros.html"><b>Nosotros</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/servicios.html"><b>Servicios</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/galeria.html"><b>Galería</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacto.html"><b>Contacto</b></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 style="font-size: 150px; color: white;">Toque Azul</h1>
+    </section>
+
+    <!-- 1 -->
+    <section id="about-business" class="py-5" >
+        <div class="container text-center">
+            <div class="about-box p-4 rounded shadow" >
+                <h2 class="mb-3">¡Bienvenidos a <span class="highlight">Toque Azul!</span></h2>
+                <p class="lead">
+                    Somos más que una empresa de decoración: ¡somos creadores de momentos mágicos! 🎉
+                    Nuestro equipo transforma tus ideas <br>en realidades asombrosas, diseñando eventos que
+                    te dejarán sin aliento y llenarán de sonrisas cada rincón. 💫
+                </p>
+                <p class="lead">
+                    Desde <strong>bodas</strong> y <strong>quinceañeros</strong> hasta
+                    <strong>baby showers</strong> y <strong>aniversarios</strong>,
+                    nuestro trabajo es dar vida a tus sueños y convertirlos <br>en recuerdos inolvidables.
+                    Cada detalle cuenta, y nosotros nos encargamos de que todo sea perfecto. 🌟
+                </p>
+                <a href="/nosotros.html" class="btn btn-primary mt-3">¡Conoce más sobre nuestro trabajo!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrusel -->
+    <section class="py-5 bg-light">
+        <div class="container" style="margin-top: 70px; margin-bottom: 80px;">
+            <h2 class="text-center mb-4" style="color: #6ea1ff;"><b>En Toque Azul, hacemos de cada evento una obra de arte🖌️</b></h2>
+            <div id="eventsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Evento 1 -->
+                    <div class="carousel-item active">
+                        <div class="carousel-slide-bg" style="background-image: url('/img/15.jpg');">
+                            <div class="carousel-content text-center">
+                                <h3 class="event-title">Quinceañeros</h3>
+                                <p class="event-description">Hacemos de tus 15 años un evento inolvidable con
+                                    decoraciones personalizadas y un servicio de lujo.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Evento 2 -->
+                    <div class="carousel-item">
+                        <div class="carousel-slide-bg" style="background-image: url('img/boda.jpeg');">
+                            <div class="carousel-content text-center">
+                                <h3 class="event-title">Bodas</h3>
+                                <p class="event-description">Creamos la boda de tus sueños con diseños exclusivos y
+                                    atención a cada detalle.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Evento 3 -->
+                    <div class="carousel-item">
+                        <div class="carousel-slide-bg" style="background-image: url('/img/14.jpg');">
+                            <div class="carousel-content text-center">
+                                <h3 class="event-title">Cumpleaños</h3>
+                                <p class="event-description">Hacemos de tu cumpleaños un momento especial con
+                                    decoraciones temáticas únicas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Evento 4 -->
+                    <div class="carousel-item">
+                        <div class="carousel-slide-bg" style="background-image: url('/img/bb.jpeg');">
+                            <div class="carousel-content text-center">
+                                <h3 class="event-title">Baby Shower</h3>
+                                <p class="event-description">Celebra la llegada de un bebé con decoraciones tiernas y un
+                                    ambiente acogedor.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Controles del carrusel -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#eventsCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"
+                        style="background-color:  rgba(253, 253, 253, 0.5);border-radius: 50%;height: 50px;width: 50px;"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#eventsCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"
+                        style="background-color:  rgba(253, 253, 253, 0.5);border-radius: 50%;height: 50px;width: 50px;"> </span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Servicios -->
+    <section class="py-5">
+        <div class="container">
+            <div class="rounded shadow p-4" style="background-color: #d3e1ff; border-radius: 15px;">
+                <!-- Título y descripción -->
+                <div class="text-center mb-4"> <br><br>
+                    <h2 class="mb-3" style="color:#6ea1ff;"><b>Nuestros Servicios</b></h2>
+                    <p class="lead" style="text-align: justify; color: #004d7a;">
+                        En <strong>Toque Azul</strong>, convertimos cada celebración en una experiencia única e
+                        inolvidable. 🎉 Nos especializamos en crear decoraciones y ambientes mágicos que reflejan tu
+                        estilo y personalidad. Desde eventos íntimos hasta grandes ocasiones, estamos aquí para diseñar
+                        momentos que quedarán en tu memoria para siempre. 🌟
+                    </p>
+                </div>
+                <!-- Tarjetas -->
+                <div class="row g-4">
+                    <!-- Tarjeta 1 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0">
+                            <img src="/img/Com.png" alt="Decoración" class="card-img-top rounded">
+                            <div class="card-body text-center">
+                                <h5 class="card-title" style="color: #007bff;"><b>Decoración</b></h5>
+                                <p class="card-text" style="color: #004d7a;">
+                                    Creamos ambientes mágicos que reflejan tu estilo y personalidad.
+                                </p>
+                                <a href="/servicios.html" class="btn btn-primary">Saber Más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta 2 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0">
+                            <img src="/img/cat.jpg" alt="Catering" class="card-img-top rounded">
+                            <div class="card-body text-center">
+                                <h5 class="card-title" style="color: #007bff;"><b>Catering</b></h5>
+                                <p class="card-text" style="color: #004d7a;">
+                                    Servicios culinarios diseñados para deleitar a tus invitados.
+                                </p>
+                                <a href="/servicios.html" class="btn btn-primary">Saber Más</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta 3 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0">
+                            <img src="/img/hl.jpg" alt="Animación" class="card-img-top rounded">
+                            <div class="card-body text-center">
+                                <h5 class="card-title" style="color: #007bff;"><b>Animación</b></h5>
+                                <p class="card-text" style="color: #004d7a;">
+                                    Llenamos tus eventos de alegría y diversión para todas las edades.
+                                </p>
+                                <a href="/servicios.html" class="btn btn-primary">Saber Más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> <br><br>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="about-us" class="py-5 bg-light">
+        <div class="container">
+
+            <div class="row align-items-center" style="margin-top: 50px; margin-bottom: 80px;">
+                <div class="col-lg-6">
+                    <img src="/img/organizadoras-eventos.jpg" alt="Toque Azul" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h3>Transformamos Momentos en Recuerdos Inolvidables</h3> <br>
+                    <p style="text-align: justify;">
+                        En <strong>Toque Azul</strong>, nos apasiona convertir tus sueños en realidad. Somos una empresa
+                        especializada en la decoración de eventos y servicios complementarios que combinan creatividad,
+                        calidad y atención personalizada.
+                    </p>
+                    <p style="text-align: justify;">
+                        Desde eventos íntimos hasta celebraciones grandiosas, nuestro equipo trabaja con dedicación para
+                        ofrecerte una experiencia única y memorable. Diseñamos decoraciones que no solo embellecen
+                        espacios, sino que también transmiten emociones y crean momentos mágicos.
+                    </p>
+                    <ul>
+                        <li>Diseños personalizados y temáticos que reflejan tu estilo y visión.</li>
+                        <li>Equipo de profesionales altamente capacitados y comprometidos.</li>
+                        <li>Materiales y accesorios de primera calidad.</li>
+                        <li>Flexibilidad para adaptarnos a tus necesidades, presupuesto y preferencias.</li>
+                    </ul>
+                    <a href="/nosotros.html" class="btn btn-primary mt-3">Conoce Más Sobre Nosotros</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5" id="testimonios">
+        <div class="container text-center" style="margin-top: 30px; margin-bottom: 80px;">
+            <h2 class="mb-5" style="color: #84adf8;"><b>Testimonios de Clientes</b></h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Testimonio 1 -->
+                    <div class="carousel-item active">
+                        <div class="testimonial"
+                            style="background-color: #d3e1ff; max-width: 1000px; margin: 1px auto; border-radius: 20px; padding: 20px;">
+                            <img src="/img/pr1.webp" alt="Cliente 1" class="testimonial-img">
+                            <p style="text-align: justify; margin: 0 40px;">
+                                "Toque Azul transformó completamente nuestra celebración en algo más que un evento, lo
+                                convirtieron en un recuerdo inolvidable. La atención al detalle, la creatividad y la
+                                pasión que pusieron en cada rincón fueron excepcionales. Recibimos elogios de todos
+                                nuestros invitados por la decoración y el ambiente mágico. ¡Son el mejor equipo que
+                                podrías tener para hacer realidad tus sueños!"
+                            </p>
+                            <p style="font-weight: bold; margin-top: 15px;">- María López, Fiesta de Aniversario</p>
+                        </div>
+                    </div>
+                    <!-- Testimonio 2 -->
+                    <div class="carousel-item">
+                        <div class="testimonial"
+                            style="background-color: #d3e1ff; max-width: 1000px; margin: 1px auto; border-radius: 20px; padding: 20px;">
+                            <img src="/img/pr2.jpg" alt="Cliente 2" class="testimonial-img">
+                            <p style="text-align: justify; margin: 0 40px;">
+                                "Desde el primer momento, el equipo de Toque Azul nos brindó confianza y
+                                profesionalismo. Nuestro evento de revelación de género fue una experiencia única que
+                                reflejó exactamente lo que queríamos. No solo cumplieron nuestras expectativas, ¡las
+                                superaron con creces! Gracias por hacer de nuestro día algo tan especial y memorable."
+                            </p>
+                            <p style="font-weight: bold; margin-top: 15px;">- Carlos y Sofía, Revelación de Género</p>
+                        </div>
+                    </div>
+                    <!-- Testimonio 3 -->
+                    <div class="carousel-item">
+                        <div class="testimonial"
+                            style="background-color: #d3e1ff; max-width: 1000px; margin: 1px auto; border-radius: 20px; padding: 20px;">
+                            <img src="/img/pr3.jpg" alt="Cliente 2" class="testimonial-img">
+                            <p style="text-align: justify; margin: 0 40px;">
+                                "Gracias a Toque Azul, nuestra empresa celebró su aniversario con un evento
+                                espectacular. La organización, decoración y atención fueron impecables. ¡Sin duda, una
+                                experiencia única para todos nuestros empleados!" </p>
+                            <p style="font-weight: bold; margin-top: 15px;">- Corporación Innovatech</p>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"
+                        style="background-color:  rgba(167, 162, 162, 0.5); border-radius: 50%; height: 50px; width: 50px;"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"
+                        style="background-color:  rgba(167, 162, 162, 0.5); border-radius: 50%; height: 50px; width: 50px;"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="/contacto.html" class="btn btn-primary btn-lg px-5 py-2">Contáctanos</a>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer class="text-white py-5" style="background-color: #6ea1ff;">
+    <div class="container">
+        <div class="row">
+            <!-- Primera columna: Navegación -->
+            <div class="col-md-3">
+                <h5 class="text-uppercase mb-4">Navegación</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/nosotros.html" class="text-white text-decoration-none">Quiénes Somos</a></li>
+                    <li><a href="/servicios.html" class="text-white text-decoration-none">Servicios</a></li>
+                    <li><a href="/galeria.html" class="text-white text-decoration-none">Eventos</a></li>
+                    <li><a href="/index.html#testimonios" class="text-white text-decoration-none">Testimonios</a></li>
+                    <li><a href="/contacto.html" class="text-white text-decoration-none">Contáctanos</a></li>
+                </ul>
+            </div>
+            <!-- Segunda columna: Recursos -->
+            <div class="col-md-3">
+                <h5 class="text-uppercase mb-4">Recursos</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/galeria.html" class="text-white text-decoration-none">Galería</a></li>
+                    <li><a href="/galeria.html" class="text-white text-decoration-none">Blog</a></li>
+                    <li><a href="#reviews" class="text-white text-decoration-none">Reseñas</a></li>
+                </ul>
+            </div>
+            <!-- Tercera columna: Redes sociales -->
+            <div class="col-md-3 text-center">
+                <h5 class="text-uppercase mb-4">Síguenos</h5>
+                <div>
+                    <a href="#" class="text-white text-decoration-none mx-2"><i
+                            class="fab fa-facebook fa-2x"></i></a>
+                    <a href="#" class="text-white text-decoration-none mx-2"><i
+                            class="fab fa-instagram fa-2x"></i></a>
+                    <a href="#" class="text-white text-decoration-none mx-2"><i
+                            class="fab fa-twitter fa-2x"></i></a>
+                    <a href="#" class="text-white text-decoration-none mx-2"><i
+                            class="fab fa-youtube fa-2x"></i></a>
+                </div>
+            </div>
+            <!-- Cuarta columna: Frase inspiradora -->
+            <div class="col-md-3">
+                <h5 class="text-uppercase mb-4">Nuestra Filosofía</h5>
+                <p class="lead" style="font-size: 15px;text-align: justify">
+                    "En Toque Azul, hacemos de cada evento una obra de arte. 🖌️ Déjanos pintar momentos
+                    inolvidables con los colores de tus sueños."
+                </p>
+            </div>
+        </div>
+        <!-- Separador -->
+        <hr class="bg-white my-4">
+        <!-- Texto final -->
+        <div class="text-center">
+            <p class="mb-0">© 2024 Toque Azul. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

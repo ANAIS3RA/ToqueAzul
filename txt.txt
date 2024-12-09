@@ -1,0 +1,16 @@
+
+
+  https://toque-azul.weeblysite.com/ideas-1  
+
+  .hero {
+            height: 100vh;
+            background: url('/img/271726142_897247340974972_230190252136882831_n.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 600px;
+        }
+
+        style="background-color: #007bff;border-radius: 50%;height: 50px;width: 50px;"
+

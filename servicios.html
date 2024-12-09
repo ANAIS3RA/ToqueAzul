@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .custom-navbar {
+            background-color: #6ea1ff;
+            color: white;
+        }
+
+        .nav-link {
+            color: white;
+        }
+
+        .services-header {
+            background-image: url('/img/2x.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 50px 20px;
+            height: 400px;
+            width: 100%;
+        }
+
+        .section-title {
+            position: relative;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: #6ea1ff;
+            border-radius: 50%;
+        }
+
+        .service-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            /* Asegura la misma altura */
+        }
+
+        .service-card img {
+            height: 150px;
+            /* Tamaño fijo para las imágenes */
+            object-fit: cover;
+            /* Asegura que las imágenes se ajusten sin deformarse */
+            border-radius: 5px;
+        }
+
+        .service-card h5 {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .carousel img {
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .contact-banner {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            /* Altura controlada */
+            background-image: url('/img/2x.jpg');
+            /* Reemplaza con tu imagen */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-banner .overlay {
+            background-color: rgba(122, 122, 122, 0.5);
+            /* Capa oscura semitransparente */
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-banner .banner-quote {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.5;
+            max-width: 800px;
+        }
+
+        .contact-banner .contact-button {
+            background-color: #6ea1ff;
+            border: 2px solid #4c82e7;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-banner .contact-button:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-custom {
+            background-color: #6ea1ff;
+            color: #fff;
+            border: 2px solid #0056b3;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+            color: #e6e6e6;
+            border-color: #003d80;
+        }
+
+        .border-accompaniment {
+            border: 3px solid #007bff;
+            /* Borde principal */
+            border-radius: 15px;
+            /* Bordes redondeados */
+            background: linear-gradient(135deg, #e6f3ff, #ffffff);
+            /* Fondo degradado */
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .timeline-item {
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            /* Línea vertical para resaltar */
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #0056b3;
+            margin-bottom: 5px;
+        }
+
+        footer a:hover {
+            color: #84adf8;
+        }
+
+        footer i {
+            transition: transform 0.3s ease;
+        }
+
+        footer i:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+            <span class="navbar-brand" style="font-weight: bold; font-size: 24px; color: white;">
+                TOQUE AZUL
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index.html"><b>Inicio</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/nosotros.html"><b>Nosotros</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/servicios.html"><b>Servicios</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/galeria.html"><b>Galería</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacto.html"><b>Contacto</b></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Encabezado -->
+    <header class="services-header text-white text-center py-5">
+        <h1 class="display-4" style="margin-top: 80px;">Nuestros Servicios</h1>
+        <p class="lead">Más que decoración, creamos ambientes únicos y te ayudamos a planificar tu evento con facilidad.
+        </p>
+    </header>
+
+    <!-- Decoración -->
+    <section class="container py-5">
+        <h2 class="section-title mb-4" style="color: #6ea1ff;">Decoración Personalizada</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="/img/Como.jpg" alt="Decoración personalizada" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6">
+                <p class="text-justify" style="text-align: justify;">
+                    En <b>Toque Azul</b>, entendemos que cada evento es único y refleja la personalidad de nuestros
+                    clientes. Por eso, trabajamos contigo para seleccionar los muebles, colores, arreglos y todo lo
+                    necesario para que tu evento sea tal como lo imaginas. Nuestro equipo está enfocado en escuchar tus
+                    ideas y transformarlas en una realidad que supere tus expectativas.
+                </p>
+                <p style="text-align: justify; line-height: 1.8;">
+                <h4 style="color: #6ea1ff;"><b>TOMAMOS EN CUENTA CADA DETALLE</b></h4>
+                <strong>Paleta de Colores:</strong> Trabajamos contigo para definir una paleta de colores que armonice
+                con el tema de tu evento, desde tonos clásicos y elegantes hasta combinaciones modernas y atrevidas.<br>
+<br>
+                <strong>Estilo Decorativo:</strong> Ofrecemos una variedad de estilos:<br>
+                <ul style="list-style-type: disc; margin-left: 20px; text-align: justify;">
+                    <li><strong>Clásico y Elegante:</strong> Ideal para bodas y aniversarios.</li>
+                    <li><strong>Rústico:</strong> Perfecto para eventos al aire libre.</li>
+                    <li><strong>Temático:</strong> Diseñado para fiestas con temáticas específicas (años 80, películas,
+                        personajes).</li>
+                    <li><strong>Minimalista:</strong> Enfoque en la simplicidad y detalles sutiles.</li>
+                </ul>
+
+                <strong>Mobiliario y Montajes:</strong>
+                <p style="text-align: justify;">Proporcionamos muebles exclusivos, desde mesas y sillas hasta lounges
+                    personalizados. Creamos montajes como mesas de dulces, áreas de fotografía y más.</p>
+
+                <strong>Arreglos Florales y Detalles Naturales:</strong>
+                <p style="text-align: justify;">Diseñamos centros de mesa, arcos y decoraciones florales que se adaptan
+                    al evento. Incluimos elementos naturales como madera, piedras, o plantas para añadir un toque
+                    especial.</p>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios complementarios -->
+    <section class="container py-5" style="margin-top: 0; margin-bottom: 100px;">
+        <h2 class="section-title mb-4" style="color: #6ea1ff;">Servicios Complementarios</h2>
+        <div class="row">
+            <div class="col-md-3 d-flex">
+                <div class="service-card text-center">
+                    <img src="/img/l1.jpg" alt="Luces" class="img-fluid">
+                    <h5>Luces y Ambientación</h5>
+                    <p>Iluminación profesional que transforma cualquier espacio en un lugar mágico.</p>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex">
+                <div class="service-card text-center">
+                    <img src="/img/cat.jpg" alt="Catering" class="img-fluid">
+                    <h5>Catering</h5>
+                    <p>Deliciosas opciones gastronómicas para satisfacer a tus invitados.</p>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex">
+                <div class="service-card text-center">
+                    <img src="/img/hl.jpg" alt="Animación" class="img-fluid">
+                    <h5>Animación</h5>
+                    <p>Entretenimiento interactivo para hacer de tu evento algo inolvidable.</p>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex">
+                <div class="service-card text-center">
+                    <img src="/img/r.jpeg" alt="Recuerdos" class="img-fluid">
+                    <h5>Recuerdos para Invitados</h5>
+                    <p>Pequeños detalles que tus invitados apreciarán y recordarán.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANNER -->
+    <section class="contact-banner">
+        <div class="overlay">
+            <h2 class="banner-quote">"Creamos recuerdos inolvidables, déjanos ser parte de tu próxima celebración."</h2>
+            <a href="/contacto.html" class="contact-button">Contáctanos</a>
+        </div>
+    </section>
+
+    <!-- Carrusel de trabajos realizados -->
+    <section class="container py-5">
+        <h2 class="section-title mb-4" style="color: #6ea1ff;">Nuestros Trabajos</h2>
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/img/t4.jpg" class="d-block w-100" alt="Trabajo 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/t1.jpg" class="d-block w-100" alt="Trabajo 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/t3.jpg" class="d-block w-100" alt="Trabajo 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/t2.jpeg" class="d-block w-100" alt="Trabajo 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"
+                    style="background-color:  rgba(253, 253, 253, 0.5);border-radius: 50%;height: 50px;width: 50px;"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"
+                    style="background-color:  rgba(253, 253, 253, 0.5);border-radius: 50%;height: 50px;width: 50px;"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!-- Botón para explorar más -->
+        <div class="text-center my-4">
+            <a href="/galeria.html" class="btn btn-custom btn-lg">Ver más de nuestro trabajo</a>
+        </div>
+    </section>
+
+    <!-- Acompañamiento al Cliente -->
+    <section class="py-5" id="serv">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="p-4 rounded shadow-sm bg-light border-accompaniment">
+                        <h2 class="text-center section-title mb-4" style="color: #6ea1ff;">Acompañamiento al Cliente</h2>
+                        <p class="text-center mb-4">
+                            En <b>Toque Azul</b>, nos comprometemos a estar contigo en cada paso del proceso. Desde la
+                            primera consulta hasta el día del evento y más allá, te ofrecemos una experiencia completa y
+                            personalizada.
+                        </p>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h4 class="timeline-title">Consulta Inicial</h4>
+                                <p>Nos reunimos contigo para conocer tus ideas, necesidades y expectativas,
+                                    asegurándonos de capturar cada detalle que hará único tu evento.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="timeline-title">Elaboración del Contrato</h4>
+                                <p>Te ofrecemos claridad y transparencia con un contrato detallado, asegurándonos de que
+                                    entiendas cada aspecto del servicio.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="timeline-title">Pre-Evento</h4>
+                                <p>Coordinamos cada elemento, desde la logística hasta los detalles decorativos, y
+                                    mantenemos comunicación constante para ajustar lo necesario.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="timeline-title">El Evento</h4>
+                                <p>Estaremos presentes el día de tu evento para asegurarnos de que todo salga perfecto,
+                                    manejando cualquier imprevisto con profesionalismo.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="timeline-title">Post-Evento</h4>
+                                <p>Te acompañamos con un seguimiento posterior, recopilando tu retroalimentación para
+                                    mejorar continuamente.</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h4 class="timeline-title">Modos de Pago</h4>
+                                <p>Ofrecemos diversas opciones de pago, incluyendo transferencias, tarjetas de crédito o
+                                    débito, para tu comodidad y facilidad.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Footer -->
+    <footer class="text-white py-5" style="background-color: #6ea1ff;">
+        <div class="container">
+            <div class="row">
+                <!-- Primera columna: Navegación -->
+                <div class="col-md-3">
+                    <h5 class="text-uppercase mb-4">Navegación</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/nosotros.html" class="text-white text-decoration-none">Quiénes Somos</a></li>
+                        <li><a href="/servicios.html" class="text-white text-decoration-none">Servicios</a></li>
+                        <li><a href="/galeria.html" class="text-white text-decoration-none">Eventos</a></li>
+                        <li><a href="/index.html#testimonios" class="text-white text-decoration-none">Testimonios</a></li>
+                        <li><a href="/contacto.html" class="text-white text-decoration-none">Contáctanos</a></li>
+                    </ul>
+                </div>
+                <!-- Segunda columna: Recursos -->
+                <div class="col-md-3">
+                    <h5 class="text-uppercase mb-4">Recursos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/galeria.html" class="text-white text-decoration-none">Galería</a></li>
+                        <li><a href="/galeria.html" class="text-white text-decoration-none">Blog</a></li>
+                        <li><a href="#reviews" class="text-white text-decoration-none">Reseñas</a></li>
+                    </ul>
+                </div>
+                <!-- Tercera columna: Redes sociales -->
+                <div class="col-md-3 text-center">
+                    <h5 class="text-uppercase mb-4">Síguenos</h5>
+                    <div>
+                        <a href="#" class="text-white text-decoration-none mx-2"><i
+                                class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-white text-decoration-none mx-2"><i
+                                class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-white text-decoration-none mx-2"><i
+                                class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-white text-decoration-none mx-2"><i
+                                class="fab fa-youtube fa-2x"></i></a>
+                    </div>
+                </div>
+                <!-- Cuarta columna: Frase inspiradora -->
+                <div class="col-md-3">
+                    <h5 class="text-uppercase mb-4">Nuestra Filosofía</h5>
+                    <p class="lead" style="font-size: 15px;text-align: justify">
+                        "En Toque Azul, hacemos de cada evento una obra de arte. 🖌️ Déjanos pintar momentos
+                        inolvidables con los colores de tus sueños."
+                    </p>
+                </div>
+            </div>
+            <!-- Separador -->
+            <hr class="bg-white my-4">
+            <!-- Texto final -->
+            <div class="text-center">
+                <p class="mb-0">© 2024 Toque Azul. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

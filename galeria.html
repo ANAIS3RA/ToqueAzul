@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .custom-navbar {
+            background-color: #6ea1ff;
+            color: white;
+        }
+
+        .nav-link {
+            color: white;
+        }
+
+        h2 {
+            color: #6ea1ff;
+        }
+
+        /* Encabezado de la Galería */
+        .gallery-header {
+            background-color: #9cbcf8;
+            padding: 50px 0;
+            background-image: url('/img/2x.jpg');
+            background-size: cover;
+            width: 100%;
+            background-attachment: fixed;
+            height: 400px;
+        }
+
+        .gallery-header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333;
+            margin-top: 100px;
+        }
+
+        .gallery-header p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .cliente-tarjeta {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 5px 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+            max-width: 400px;
+            max-height: 600px;
+        }
+
+        .comentarios-tarjeta {
+            background-color: #f1f1f1;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            margin: 15px 10px;
+            width: 300px;
+        }
+
+        .mira-mas-img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .contact-banner {
+            position: relative;
+            width: 100%;
+            max-height: 350px;
+            /* Altura controlada */
+            background-image: url('img/2x');
+            /* Reemplaza con tu imagen */
+            background-color: #9cbcf8;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-banner .overlay {
+            /* background-color: rgba(122, 122, 122, 0.5); */
+            /* Capa oscura semitransparente */
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-banner .banner-quote {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.5;
+            max-width: 800px;
+        }
+
+        .contact-banner .contact-button {
+            background-color: #3e82ff;
+            border: 2px solid #4c82e7;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-banner .contact-button:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-custom {
+            background-color: #6ea1ff;
+            color: #fff;
+            border: 2px solid #0056b3;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+            color: #e6e6e6;
+            border-color: #003d80;
+        }
+
+        .carousel-img {
+            max-height: 350px;
+            width: auto;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .carousel-inner img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .muebles-propios {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+
+        .muebles-propios h2 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .muebles-propios p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .mueble-item img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .mueble-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .mueble-item p {
+            font-size: 1rem;
+            color: #444;
+            font-weight: 600;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(253, 253, 253, 0.5);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+
+        .commitment-box {
+            background-color: #84adf8;
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .commitment-text {
+            color: white;
+            line-height: 1.8;
+            text-align: justify;
+            margin: 0 50px;
+        }
+
+        /* Estilo para los cuadros de imágenes */
+        .event-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: scale(1.05);
+        }
+
+        .event-card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .event-card h4 {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #84adf8;
+        }
+
+        footer i {
+            transition: transform 0.3s ease;
+        }
+
+        footer i:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+            <span class="navbar-brand" style="font-weight: bold; font-size: 24px; color: white;">
+                TOQUE AZUL
+            </span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index.html"><b>Inicio</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/nosotros.html"><b>Nosotros</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/servicios.html"><b>Servicios</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/galeria.html"><b>Galería</b></a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacto.html"><b>Contacto</b></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Título de la Galería -->
+    <header class="gallery-header">
+        <div class="container text-center">
+            <h1 class="display-4" style="color: white;">CONOCE MÁS SOBRE NUESTRO TRABAJO</h1>
+            <p class="lead" style="color: white;">Superamos las expectativas de nuestros clientes con cada evento,
+                creando momentos
+                inolvidables.</p>
+        </div>
+    </header>
+
+    <!-- Sección de Experiencia -->
+    <section class="container my-5">
+        <div class="row text-center">
+            <!-- Texto Introductorio -->
+            <div class="col-12" style="margin-top: 70px;">
+                <h2><b>¡Tenemos experiencia en hacer que tus eventos sean únicos!</b></h2> <br>
+                <p class="lead" style="font-size: 18px;text-align: justify;">
+                    En Toque Azul, contamos con años de experiencia haciendo realidad todo tipo de eventos, cada uno con
+                    su propio toque especial. Ya sea un cumpleaños, una boda o una fiesta temática, nos encargamos de
+                    todos los detalles para que tu evento sea inolvidable. Cada vez que nos llaman, nos comprometemos al
+                    máximo para ofrecer lo mejor, creando un ambiente lleno de magia, diversión y elegancia. Nuestra
+                    pasión por los eventos es lo que nos mueve y nos distingue, ¡y nos encanta ser parte de momentos tan
+                    especiales!
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Más sobre este tipo de eventos -->
+    <section class="container my-5 text-center">
+        <!-- <h2><b>Mira más sobre otros Eventos</b></h2> -->
+        <div id="otrosEventosCarrusel" class="carousel slide mt-4" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/img/c4.jpg" class="d-block w-100" alt="Otros 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/c6.jpg" class="d-block w-100" alt="Otros 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/cc.jpg" class="d-block w-100" alt="Otros 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/c5.jpg" class="d-block w-100" alt="Otros 2">
+                </div>
+            </div>
+            <!-- Botón Anterior -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#otrosEventosCarrusel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <!-- Botón Siguiente -->
+            <button class="carousel-control-next" type="button" data-bs-target="#otrosEventosCarrusel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Comentarios de Clientes -->
+    <section class="container my-5" id="clientes"> 
+        <!-- <h2 class="text-center"><b>Comentarios de Clientes</b></h2> -->
+        <div class="row mt-4">
+            <div class="col-md-4 comentarios-tarjeta">
+                <img src="/img/prm1.jpg" class="img-fluid rounded-circle mb-2" alt="Cliente 1"
+                    style="width: 100px; height: 100px;">
+                <p class="fw-bold">María López</p>
+                <p style="text-align: justify;font-size: 15px;margin: auto 5%;"><strong>Evento:</strong> Cumpleaños<br>"El primer cumpleaños de mi bebé fue hermoso, totalmente volveremos el próximo año."</p>
+            </div>
+            <div class="col-md-4 comentarios-tarjeta">
+                <img src="/img/pr1.jpg" class="img-fluid rounded-circle mb-2" alt="Cliente 2"
+                    style="width: 100px; height: 100px;">
+                <p class="fw-bold">Juan Pérez</p>
+                <p style="text-align: justify;font-size: 15px;margin: auto 5%;"><strong>Evento:</strong>Fiesta de Bienvenida<br>"Mi madre volvía al país después de 15 años, no me arrepiento de confiar en ustedes para darle una preciosa fiesta de reencuentro."</p>
+            </div>
+            <div class="col-md-4 comentarios-tarjeta">
+                <img src="/img/prm2.jpg" class="img-fluid rounded-circle mb-2" alt="Cliente 2"
+                    style="width: 100px; height: 100px;">
+                <p class="fw-bold">María Ortíz</p>
+                <p style="text-align: justify;font-size: 15px;margin: auto 5%;"><strong>Evento:</strong>50 años<br>"Siempre soñé en tener una gran fiesta al llegar a esta edad, estoy tan agradecida de que hayan hecho mi sueño realidad."</p>
+            </div>
+            <div class="col-md-4 comentarios-tarjeta">
+                <img src="/img/prh2.jpg" class="img-fluid rounded-circle mb-2" alt="Cliente 2"
+                    style="width: 100px; height: 100px;">
+                <p class="fw-bold">Juan Pérez</p>
+                <p style="text-align: justify;font-size: 15px;margin: auto 5%;"><strong>Evento:</strong> Baby Shower<br>"Fue un día perfecto, gracias a su equipo."</p>
+            </div>
+        </div>
+    </section>
+
+        <!-- BANNER -->
+        <section class="contact-banner" style="margin: 80px auto;">
+            <div class="overlay"><br>
+                <h2 class="banner-quote">"Creamos recuerdos inolvidables, déjanos ser parte de tu próxima celebración."</h2>
+                <!-- <p class="commitment-text">
+                    En nuestra empresa, estamos profundamente comprometidos con ofrecer servicios de la más alta
+                    calidad.
+                    Cada detalle de nuestros proyectos está diseñado con pasión y dedicación, garantizando que cada
+                    evento
+                    sea único y refleje los sueños de nuestros clientes. Desde la planificación inicial hasta la
+                    ejecución final,
+                    trabajamos incansablemente para superar expectativas, aportando creatividad, experiencia y
+                    cuidado en cada paso.
+                    ¡Tu confianza es nuestra mayor motivación!
+                </p> <br> -->
+                <a href="/contacto.html" class="contact-button">Contáctanos</a>
+            </div>
+        </section>
+
+    <!-- Cliente Destacado -->
+    <section class="container my-5">
+        <div class="row d-flex justify-content-center align-items-center" style="margin: 100px auto;">
+
+            <!-- Tarjeta del Cliente -->
+            <div class="col-md-5 cliente-tarjeta text-center">
+                <img src="/img/pr2.webp" alt="Cliente" class="img-fluid rounded-circle mb-3"
+                    style="width: 100px; height: 100px;">
+                <p class="fw-bold">"Gracias a Toque Azul por hacer nuestro evento inolvidable."</p>
+                <p style="text-align: justify; font-size: 14px;">
+                    Margarita nos pidió una decoración minimalista para su boda al aire libre.
+                    Le entregamos mucho más de lo que esperaba: un ambiente mágico, con detalles rústicos y elegantes
+                    que hicieron su boda aún más especial.
+                </p>
+            </div>
+
+            <!-- Carrusel del Evento -->
+            <div class="col-md-7">
+                <div id="exampleCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/img/t4.jpg" class="d-block mx-auto carousel-img" alt="Ejemplo 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/img/t4-1.jpg" class="d-block mx-auto carousel-img" alt="Ejemplo 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="/img/b2.jpeg" class="d-block mx-auto carousel-img" alt="Ejemplo 3">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#exampleCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"
+                            style="background-color:  rgba(253, 253, 253, 0.5);border-radius: 50%;height: 50px;width: 50px;"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#exampleCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"
+                            style="background-color: rgba(253, 253, 253, 0.5);border-radius: 50%;height: 50px;width: 50px;"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Sección de Muebles Propios -->
+    <section class="muebles-propios py-5" >
+        <div class="container text-center" style="margin-top: 30px;">
+            <h2 class="mb-4" style="color: #84adf8;"><b>Mobiliario Fabricado por Nosotros</b></h2>
+            <p class="mb-5">Estamos dedicados a ofrecer la mejor experiencia. Por eso fabricamos nuestros propios
+                muebles, asegurándonos de que cada detalle refleje nuestra pasión y compromiso con tu evento.</p>
+            <div class="row g-4">
+                <!-- Cuadro 1 -->
+                <div class="col-md-4">
+                    <div class="mueble-item">
+                        <img src="/img/mb1.jpg" class="img-fluid rounded" alt="Mueble 1">
+                        <p class="mt-3">Arcos personalizadas</p>
+                    </div>
+                </div>
+                <!-- Cuadro 2 -->
+                <div class="col-md-4">
+                    <div class="mueble-item">
+                        <img src="/img/mb2.jpg" class="img-fluid rounded" alt="Mueble 2">
+                        <p class="mt-3">Mesas personalizadas</p>
+                    </div>
+                </div>
+                <!-- Cuadro 3 -->
+                <div class="col-md-4">
+                    <div class="mueble-item">
+                        <img src="/img/mb3.jpg" class="img-fluid rounded" alt="Mueble 3">
+                        <p class="mt-3">Formas Divertidas</p>
+                    </div>
+                </div>
+                <!-- Cuadro 4 -->
+                <div class="col-md-4">
+                    <div class="mueble-item">
+                        <img src="/img/mb4.jpg" class="img-fluid rounded" alt="Mueble 3">
+                        <p class="mt-3">Lounges modernos</p>
+                    </div>
+                </div>
+                <!-- Cuadro 5 -->
+                <div class="col-md-4">
+                    <div class="mueble-item">
+                        <img src="/img/mb5.jpg" class="img-fluid rounded" alt="Mueble 3">
+                        <p class="mt-3">Modernos</p>
+                    </div>
+                </div>
+                <!-- Cuadro 6 -->
+                <div class="col-md-4">
+                    <div class="mueble-item">
+                        <img src="/img/mb6.jpg" class="img-fluid rounded" alt="Mueble 3">
+                        <p class="mt-3">Con Luces</p>
+                    </div>
+                </div>
+                <!-- Cuadro 7 -->
+                <div class="col-md-4">
+                    <div class="mueble-item">
+                        <img src="/img/mb7.jpg" class="img-fluid rounded" alt="Mueble 3">
+                        <p class="mt-3">Coloridos</p>
+                    </div>
+                </div>
+                <!-- Cuadro 8 -->
+                <div class="col-md-4">
+                    <div class="mueble-item">
+                        <img src="/img/mb8.jpg" class="img-fluid rounded" alt="Mueble 3">
+                        <p class="mt-3">Elegantes</p>
+                    </div>
+                </div>
+                <!-- Cuadro 9 -->
+                <div class="col-md-4">
+                    <div class="mueble-item">
+                        <img src="/img/mb13.jpg" class="img-fluid rounded" alt="Mueble 3">
+                        <p class="mt-3">Tematizados</p>
+                    </div>
+                </div>
+                <!-- Cuadro 10 -->
+                <div class="col-md-4">
+                    <div class="mueble-item">
+                        <img src="/img/mb10.jpg" class="img-fluid rounded" alt="Mueble 3">
+                        <p class="mt-3">Carritos</p>
+                    </div>
+                </div>
+                <!-- Cuadro 11 -->
+                <div class="col-md-4">
+                    <div class="mueble-item">
+                        <img src="/img/mb11.jpg" class="img-fluid rounded" alt="Mueble 3">
+                        <p class="mt-3">Mesas tematizadas</p>
+                    </div>
+                </div>
+                <!-- Cuadro 12 -->
+                <div class="col-md-4">
+                    <div class="mueble-item">
+                        <img src="/img/mb12.jpg" class="img-fluid rounded" alt="Mueble 3">
+                        <p class="mt-3">Plataformas </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+<footer class="text-white py-5" style="background-color: #6ea1ff;">
+    <div class="container">
+        <div class="row">
+            <!-- Primera columna: Navegación -->
+            <div class="col-md-3">
+                <h5 class="text-uppercase mb-4">Navegación</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/nosotros.html" class="text-white text-decoration-none">Quiénes Somos</a></li>
+                    <li><a href="/servicios.html" class="text-white text-decoration-none">Servicios</a></li>
+                    <li><a href="/galeria.html" class="text-white text-decoration-none">Eventos</a></li>
+                    <li><a href="/index.html#testimonios" class="text-white text-decoration-none">Testimonios</a></li>
+                    <li><a href="/contacto.html" class="text-white text-decoration-none">Contáctanos</a></li>
+                </ul>
+            </div>
+            <!-- Segunda columna: Recursos -->
+            <div class="col-md-3">
+                <h5 class="text-uppercase mb-4">Recursos</h5>
+                <ul class="list-unstyled">
+                    <li><a href="/galeria.html" class="text-white text-decoration-none">Galería</a></li>
+                    <li><a href="/galeria.html" class="text-white text-decoration-none">Blog</a></li>
+                    <li><a href="#reviews" class="text-white text-decoration-none">Reseñas</a></li>
+                </ul>
+            </div>
+            <!-- Tercera columna: Redes sociales -->
+            <div class="col-md-3 text-center">
+                <h5 class="text-uppercase mb-4">Síguenos</h5>
+                <div>
+                    <a href="#" class="text-white text-decoration-none mx-2"><i
+                            class="fab fa-facebook fa-2x"></i></a>
+                    <a href="#" class="text-white text-decoration-none mx-2"><i
+                            class="fab fa-instagram fa-2x"></i></a>
+                    <a href="#" class="text-white text-decoration-none mx-2"><i
+                            class="fab fa-twitter fa-2x"></i></a>
+                    <a href="#" class="text-white text-decoration-none mx-2"><i
+                            class="fab fa-youtube fa-2x"></i></a>
+                </div>
+            </div>
+            <!-- Cuarta columna: Frase inspiradora -->
+            <div class="col-md-3">
+                <h5 class="text-uppercase mb-4">Nuestra Filosofía</h5>
+                <p class="lead" style="font-size: 15px;text-align: justify;">
+                    "En Toque Azul, hacemos de cada evento una obra de arte. 🖌️ Déjanos pintar momentos
+                    inolvidables con los colores de tus sueños."
+                </p>
+            </div>
+        </div>
+        <!-- Separador -->
+        <hr class="bg-white my-4">
+        <!-- Texto final -->
+        <div class="text-center">
+            <p class="mb-0">© 2024 Toque Azul. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
